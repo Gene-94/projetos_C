@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1642035121 source:/home/yevheniy/programing/jogo_galo/main.c
+	<stdio.h>
+	<stdlib.h>
+

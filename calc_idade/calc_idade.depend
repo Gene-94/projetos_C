@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1640181833 source:/home/yevheniy/programing/calc_idade/main.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+
