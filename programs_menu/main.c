@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <locale.h>
-#define PI 3,14159265358979323846
+#define PI 3.1415926535
 
 void hello();
 void soma();
@@ -20,30 +20,23 @@ void areas ();
 void dias();
 void mash();
 void length();
+void minusculas ();
+void maiusculas ();
+void invertida ();
+void str_check();
+
+
+void testes();
 
 int main()
 {
 
     setlocale(LC_ALL, "Portuguese");
 
-    area_c();
+    // testes();
 
-    /*
 
-    hello();
-    printf("\n--------------------------------------------------\n");
-    soma();
-    printf("\n--------------------------------------------------\n");
-    troca();
-    printf("\n--------------------------------------------------\n");
-    mash();
-    printf("\n--------------------------------------------------\n");
-    length();
-    printf("\n--------------------------------------------------\n");
-    temperaturas();
-    printf("\n--------------------------------------------------\n");
-
-    */
+    invertida ();
 
 
     /*
@@ -126,8 +119,8 @@ int main()
 
 void hello() {
     printf("\nOlá Mundo !");
-    printf("\n");
-    printf("\nTodos as funções presentes neste programa encontam se disponiveís em https://techstudy.org/clanguage/c-programming-example-and-solutions/ para consulta e analize.\n");
+    printf("\n\nTodos as funções presentes foram inspiradas nos exemplos disponiveís em https://techstudy.org/clanguage/c-programming-example-and-solutions/ para consulta e analize.\n");
+
 }
 
 
@@ -271,8 +264,8 @@ void area_c() {
     float raio, area;
     printf("Esta função calcula a área de um quadrado.\n\n");
     printf("Insira o comprimento do raio : ");
-    scanf("%lf", &raio);
-    area = PI * raio * raio;
+    scanf("%f", &raio);
+    area = raio*raio*PI;
     printf("\Area do círculo é : %.3lf", area);
 }
 
@@ -314,6 +307,12 @@ void dias() {
     printf("Dias: %d", days);
 }
 
+// End of basic programs
+
+
+
+//string programs
+
 void mash() {
     char str1[50], str2[50];
     printf("\nEsta funação agrega duas palavras diferentes numa.\n\n");
@@ -331,7 +330,7 @@ void length() {
     int nr_letras;
     printf("\nEsta função mede o comprimento do seu nome.\n");
     printf("\nInsira o seu nome:");
-    gets(str);
+    fgets(str, 100, stdin);
     nr_letras = strlen(str);
     for (int i=0; i<strlen(str); i++) {
         if (str[i]==' '){
@@ -343,3 +342,82 @@ void length() {
 
 }
 
+void minusculas () {
+    char frase [75];
+
+    printf("Esta função converte letras maiusculas, de uma frase, para letras minusculas.\n\n");
+    printf("Escreva uma frase: ");
+    fgets(frase, 75, stdin);
+    printf("\nA sua frase: %s\n", frase);
+    // não reconhece a função stlwr()
+    // printf("A frase convertida: %s", strlwr(frase) );
+    for (int i=0; i < strlen(frase); i++) {
+        if (frase[i]>='A' && frase[i]<='Z' ) {
+            frase[i] = frase[i]+32;
+        }
+    }
+    printf("\nA sua nova frase: %s", frase);
+
+
+}
+
+void maiusculas () {
+    char frase [75];
+
+    printf("Esta função converte letras minusculas, de uma frase, para letras maiusculas.\n\n");
+    printf("Escreva uma frase: ");
+    fgets(frase, 75, stdin);
+    printf("\nA sua frase: %s\n", frase);
+    // strupr no reconhecida
+//    printf("A frase convertida: %s", strupr(frase) );
+    for (int i=0; i < strlen(frase); i++) {
+        if (frase[i]>='a' && frase[i]<='z' ) {
+            frase[i] = frase[i]-32;
+        }
+    }
+    printf("\nA sua nova frase: %s", frase);
+
+
+}
+
+void invertida () {
+    char frase [76];
+
+    printf("Esta função inverte uma frase intoduzida para a ver de forma espelhada.\n\n");
+    printf("Escreva uma frase: ");
+    scanf("%75[^\n]s", frase);
+    //fgets(frase, 76, stdin);
+    printf("\nA sua frase: %s", frase);
+    printf("\nA sua nova frase: ");
+    //  Ao usar o for o output força um newline depois do printf anterior, existe alguma forma de prevenir isso, de forma a imprimir tudo na mesma linha??
+    // a situação do comentário anterior apenas acontece com se lermos a frase com o fgets, ao usarmos o fgets o strlen() apresenta um valor a mais
+    for (int i = strlen(frase)-1 ; i >= 0 ; i--) {
+        printf("%c", frase[i]);
+    }
+    printf("\n");
+    // Tambem podia ser feito com o uso de um segundo array
+
+}
+
+void str_check() {
+    int alph, digit, special, i;
+    char frase [201];
+
+    printf("Esta função conta o numero de letras, digitos e carateres especiaís e indica a sua quantidade respetivamente.\n");
+    printf("Insira o seu texto (até 200 carateres): ");
+    fgets(frase, 201, stdin);
+    printf("\nO seu texto: %s", frase);
+    for (i=0; i<strlen(frase); i++) {
+    }
+}
+
+
+//void testes() {
+//
+//    char abc[10] = "123456";
+//
+//    printf("%d", strlen(abc));
+//
+//    printf("MARKER");
+//
+//}

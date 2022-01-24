@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1641989032 source:/home/yevheniy/programing/programs_menu/main.c
+1643027982 source:/home/yevheniy/programing/programs_menu/main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
