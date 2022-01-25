@@ -400,15 +400,19 @@ void invertida () {
 }
 
 void str_check() {
-    int alph, digit, special, i;
+    int alph=0, digit=0, special=0, i;
     char frase [201];
 
     printf("Esta função conta o numero de letras, digitos e carateres especiaís e indica a sua quantidade respetivamente.\n");
     printf("Insira o seu texto (até 200 carateres): ");
     fgets(frase, 201, stdin);
-    printf("\nO seu texto: %s", frase);
     for (i=0; i<strlen(frase); i++) {
+        if((frase[i]>='a' && frase[i]<='z') || (frase[i]>='A' && frase[i]<='Z'){alph++}
+        else if (frase[i]>='0' && frase[i]<='9'){digit++}
+        else if (frase[i] == ' '){}
+        else {special++}
     }
+
 }
 
 
