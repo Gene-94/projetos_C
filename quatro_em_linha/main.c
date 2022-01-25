@@ -11,7 +11,7 @@
 #define PRIMEIRA 1
 
 char base[I][J], nome1[50], nome2[50];
-int brains=0;
+int brains=0, empate=0;
 
 void intro () {
     printf("\nBem vindo ao QUATRO EM LINHA !!!\n\n");
@@ -246,6 +246,16 @@ int teste () {
             }
         }
     }
+    for (int j=1; j<J; j++) {
+        int somatorio =0;
+
+        somatorio = somatorio+base[1][j];
+
+        if(somatorio >= 553 && somatorio <= 616) {
+            printf("Empate !! não restam mais espaços livres.");
+            return 0;
+        }
+    }
 
     return 1;
 }
@@ -286,7 +296,7 @@ int main()
         printf("\n\nQuer jogar novamente?  (S/N)");
         do {
             printf("\nResposta : ");
-            scanf(" %c", &op);
+            scanf(" %1c ", &op);
             if(op != 'S' && op != 's' && op != 'N' && op != 'n'){
                 printf("\nOpção invalida ! Por favor responda com S (sim) ou N (não).\n");
             }
