@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1643063401 source:/home/yevheniy/programing/quatro_em_linha/main.c
+1643149150 source:/home/yevheniy/programing/quatro_em_linha/main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>

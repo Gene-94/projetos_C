@@ -193,6 +193,8 @@ void jogador_2 () {
 
 
 int teste () {
+    int somatorio =0;
+
     // Testa na vertical
     for (int j=1; j<J; j++ ){
         for(int i=1; i<4; i++){
@@ -246,8 +248,8 @@ int teste () {
             }
         }
     }
+    //Testa empate
     for (int j=1; j<J; j++) {
-        int somatorio =0;
 
         somatorio = somatorio+base[1][j];
 
@@ -262,7 +264,7 @@ int teste () {
 
 int main()
 {
-    char op;
+    int op;
 
     intro () ;
 
@@ -293,17 +295,15 @@ int main()
 
         }while(1);
 
-        printf("\n\nQuer jogar novamente?  (S/N)");
+        printf("\n\nQuer jogar novamente?\n");
+        printf("1-Sim\t 2-Não\n");
         do {
-            printf("\nResposta : ");
-            scanf(" %1c ", &op);
-            if(op != 'S' && op != 's' && op != 'N' && op != 'n'){
-                printf("\nOpção invalida ! Por favor responda com S (sim) ou N (não).\n");
-            }
-        }while(op != 'S' && op != 's' && op != 'N' && op != 'n');
+            printf("Opção: ");
+            scanf("%d", &op);
+            if(op != 1 && op != 2){ printf("\nIsira uma opção valida (sim - 1 | não -2)");}
+        }while(op != 1 && op != 2);
 
-
-    }while(op != 'N' && op != 'n');
+    }while(op != 2);
 
 
     return 0;
