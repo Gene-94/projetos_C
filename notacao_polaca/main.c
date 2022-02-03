@@ -117,12 +117,12 @@ int main () {
 //    temp->proximo=inicio;
 //    inicio=temp;
 
-    for(int i=0;i<3;i++){
-        printf("Input: ");
-        scanf(" %c", &in);
-        temp=criar_novo_no(in);
-        inserir_inicio(&inicio,temp);
-    }
+//    for(int i=0;i<3;i++){
+//        printf("Input: ");
+//        scanf(" %c", &in);
+//        temp=criar_novo_no(in);
+//        inserir_inicio(&inicio,temp);
+//    }
 //
 //    imprimir_lista(inicio);
 //
@@ -130,15 +130,24 @@ int main () {
 
     //inserir_depois_de_no(temp, criar_novo_no(in));
 
-    for(int i=0;i<3;i++){
-        printf("Input: ");
-        scanf(" %c", &in);
-        inserir_depois_de_no(temp, criar_novo_no(in));
-    }
+//    for(int i=0;i<3;i++){
+//        printf("Input: ");
+//        scanf(" %c", &in);
+//        inserir_depois_de_no(temp, criar_novo_no(in));
+//    }
 
     //temp= pesquisa(inicio,'+');
 
     //printf("\n\n Encontri o node com %c", temp->valor);
+
+    do{
+
+        printf("Input: ");
+        scanf(" %c", &in);
+        temp=criar_novo_no(in);
+        inserir_inicio(&inicio,temp);
+
+    }while(in!='!');
 
     imprimir_lista(inicio);
 
