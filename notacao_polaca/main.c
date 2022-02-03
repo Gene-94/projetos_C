@@ -17,7 +17,7 @@ void imprimir_lista(no *inicio) {
     }
 }
 
-no *criar_novo_no(char valor,no *inicio) {
+no *criar_novo_no(char valor) {
     no *resultado;
     resultado = malloc(sizeof(no));
     resultado->valor=valor;
@@ -117,25 +117,31 @@ int main () {
 //    temp->proximo=inicio;
 //    inicio=temp;
 
-//    for(int i=0;i<3;i++){
-//        printf("Input: ");
-//        scanf(" %c", &in);
-//        temp=criar_novo_no(in,inicio);
-//        inserir_inicio(&inicio,temp);
-//    }
+    for(int i=0;i<3;i++){
+        printf("Input: ");
+        scanf(" %c", &in);
+        temp=criar_novo_no(in);
+        inserir_inicio(&inicio,temp);
+    }
+//
+//    imprimir_lista(inicio);
+//
+//    printf("\n\n\n");
+
+    //inserir_depois_de_no(temp, criar_novo_no(in));
 
     for(int i=0;i<3;i++){
         printf("Input: ");
         scanf(" %c", &in);
-        temp=criar_novo_no(in,inicio);
-        inserir_depois_de_no(temp, criar_novo_no(in))
+        inserir_depois_de_no(temp, criar_novo_no(in));
     }
 
-    temp= pesquisa(inicio,'+');
+    //temp= pesquisa(inicio,'+');
 
+    //printf("\n\n Encontri o node com %c", temp->valor);
 
     imprimir_lista(inicio);
-    printf("\n\n Encontri o node com %c", temp->valor);
+
 
 
     return 0;
