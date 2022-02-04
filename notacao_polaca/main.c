@@ -13,24 +13,16 @@
 typedef struct no_lista {
     //que tipo de dados uso para guardar elementos de tamanho variavel na lista?
     //flexible array member??
+    char valor[50];
     struct no_lista *proximo;
-    char valor;
 }no;
 
-void imprimir_lista(no *inicio) {
-    no *temporario;
-    temporario = inicio;
 
-    while (temporario != NULL) {
-        printf("%s", temporario->valor);
-        temporario = temporario->proximo;
-    }
-}
-
-no *criar_novo_no(char valor ) {
+no *criar_novo_no(no *valor ) {
     no *resultado;
     resultado = malloc(sizeof(no));
-    resultado->valor=valor;
+    strcpy(resultado->valor,valor);
+    //resultado->valor=valor;
     resultado->proximo=NULL;
     return resultado;
 }
@@ -49,13 +41,23 @@ void inserir_depois_de_no(no *no_anterior, no *novo_no){
     no_anterior->proximo=novo_no;
 }
 
-no *pesquisa (no *inicio, char valor) {
+no *pesquisa (no *inicio, no *valor) {
     no *tpm = inicio;
     while (tpm != NULL){
         if (tpm->valor==valor) return tpm;
         tpm=tpm->proximo;
     }
     return NULL;
+}
+
+void imprimir_lista(no *inicio) {
+    no *temporario;
+    temporario = inicio;
+
+    while (temporario != NULL) {
+        printf("%s", temporario->valor);
+        temporario = temporario->proximo;
+    }
 }
 
 int main () {
@@ -180,13 +182,6 @@ int main () {
 //    getchar();
 //    getchar();
 
-    //teste para passar valores de arrays
-//    char array1[]= "Array1";
-//    char array2 = array1;
-//    printf("%s", array1);
-//    printf("\n%s- mas 2", array1);
-//
-//    return 0;
 
     printf("Insira a equação em notação polaca: ");
     scanf("%m[^\n]", &eq_polaca );//le linha toda e aloca memoria dinamicamente
@@ -194,13 +189,11 @@ int main () {
 
     //carregar o array eq_polaca[] para a lista
 
-    //printf("array eq_polaca: %s", eq_polaca);
     token=strtok(eq_polaca," ");
 
     while(token!=NULL){
         printf("%s\n", token);
-        char temp_val=token;
-        temp=criar_novo_no(temp_val);
+        temp=criar_novo_no(token);
         inserir_inicio(&inicio,temp);
         token=strtok(NULL," ");
     }
@@ -209,7 +202,7 @@ int main () {
     free(eq_polaca);//depois de carregado para a lista já podemos libertar a memoria
 
 
-    imprimir_lista(inicio);
+    imprimir_lista(inicio);//vai imprimir na ordem inversa a introduzida
 
 
 
