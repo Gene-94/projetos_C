@@ -28,9 +28,13 @@ typedef struct opr{
 
 void pedir(char *string);
 int validar(char *string);
+void distribuir(char *string);
+void adicionar_nr(int num);
+void adicionar_opr(char opr);
+void adicionar();
 
 int main (){
-    char *token;
+
     //char *str_eq;
     char str_eq[150] = {0};
     int x;
@@ -53,10 +57,8 @@ int main (){
     //separar a equação nas suas partes individuais
     //confirmar se é numero ou operador
     //carregar para a lista
-    token = strtok(str_eq," ");
-    while (token != NULL){
-        token = strtok(NULL," ");
-    }
+    distribuir(str_eq);
+
 
 
 
@@ -96,3 +98,49 @@ int validar(char *string){
     }
     return 0;
 }
+
+void distribuir(char *string){
+    //separar a equação nas suas partes individuais
+    //confirmar se é numero ou operador
+    //carregar para a lista
+    char *cpntr, *cpntr2;
+    int num;
+    char op;
+    cpntr=string;
+    while(*cpntr!=0 && *cpntr2!=0){
+      num=strtol(cpntr, &cpntr2,10);
+      if(cpntr==cpntr2){
+          cpntr2++;
+          ch = *cpntr2;
+          //inserir dados em no de struct opr
+          adicionar_opr(ch);
+          cpntr2++;
+      }
+      else{
+          // Inserir num em no de struct nr
+          adicionar_nr(num);
+      }
+      num=strtol(cpntr2, &cpntr,10);
+      if(cpntr2==cpntr){
+          cpntr++;
+          ch = *cpntr;
+          //inserir dados em no de struct opr
+          adicionar_opr(ch);
+          cpntr++;
+      }
+      else{
+          // Inserir num em no de struct nr
+          adicionar_nr(num);
+      }
+    }
+}
+
+//void adicionar_nr(){
+//
+//}
+//
+//void adicionar_opr(){
+//
+//}
+
+
