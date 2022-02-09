@@ -26,6 +26,42 @@ typedef struct opr{
     struct opr *proximo;
 }opr;
 
+void pedir(char *string);
+int validar(char *string);
+
+int main (){
+    char *token;
+    //char *str_eq;
+    char str_eq[150] = {0};
+
+    printf("\t***** Calculadora Polaca *****\n");
+
+    //o str_eq vai servir como uma especie de buffer, depois de ser carregado para a lista podemos libertar esta memoria
+    //str_eq = (char *)malloc(150*sizeof(char));
+    //não consigo passar os ponteiros corretamente se usar malloc/calloc
+
+    do{
+        // pedir expressão + instruções
+        pedir(str_eq);
+
+        //validar o input 
+        validar(str_eq); 
+    }while(validar(str_eq));//se não for validado volta a pedir
+
+
+    //separar a equação nas suas partes individuais
+    //confirmar se é numero ou operador
+    //carregar para a lista
+    token = strtok(str_eq," ");
+    while (token != NULL){
+        token = strtok(NULL," ");
+    }
+
+
+
+    return 0;
+}
+
 void pedir(char *string){
     
     // pedir expressão + instruções
@@ -60,37 +96,3 @@ int validar(char *string){
     return 0;
 }
 
-
-
-int main (){
-    char *token;
-    //char *str_eq;
-    char str_eq[150] = {0};
-
-    printf("\t***** Calculadora Polaca *****\n");
-
-    //o str_eq vai servir como uma especie de buffer, depois de ser carregado para a lista podemos libertar esta memoria
-    //str_eq = (char *)malloc(150*sizeof(char));
-    //não consigo passar os ponteiros corretamente se usar malloc/calloc
-
-    do{
-    // pedir expressão + instruções
-    pedir(str_eq);
-
-    //validar o input 
-    validar(str_eq); 
-    }while(validar(str_eq));//se não for validado volta a pedir
-
-
-    //separar a equação nas suas partes individuais
-    //confirmar se é numero ou operador
-    //carregar para a lista
-    token = strtok(str_eq," ");
-    while (token != NULL){
-        token = strtok(NULL," ");
-    }
-
-
-
-    return 0;
-}
