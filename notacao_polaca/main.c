@@ -33,6 +33,7 @@ int main (){
     char *token;
     //char *str_eq;
     char str_eq[150] = {0};
+    int x;
 
     printf("\t***** Calculadora Polaca *****\n");
 
@@ -45,8 +46,8 @@ int main (){
         pedir(str_eq);
 
         //validar o input
-        validar(str_eq);
-    }while(validar(str_eq));//se não for validado volta a pedir
+        x=validar(str_eq);
+    }while(x);//se não for validado volta a pedir
 
 
     //separar a equação nas suas partes individuais
@@ -70,7 +71,7 @@ void pedir(char *string){
     printf("\nEquação: ");
 
     //ler a equação escrita pelo utilizador toda numa linha so
-    scanf("%149[^\n]", string);
+    scanf(" %149[^\n]", string);
 }
 
 int validar(char *string){
