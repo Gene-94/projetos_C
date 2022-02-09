@@ -19,7 +19,7 @@ typedef struct no_lista {
 }no;
 
 
-no *criar_novo_no(no * ) {
+no *criar_novo_no(no  ) {
     no *resultado;
     resultado = malloc(sizeof(no));
     strcpy(resultado->valor,valor);
