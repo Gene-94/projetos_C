@@ -5,39 +5,40 @@
 
 //struct para inserir tanto valores como operadores
 
-// typedef struct eq {
-//     int nr;
-//     char opr;
-//     struct eq *proximo;
-// } eq;
+ typedef struct eq {
+     int nr;
+     char opr;
+     struct eq *proximo;
+ } eq;
 
 
 
 //duas structs, uma contendo os numeros e outra os operadores
 //desta forma quando alocar a memoria não reserva floats e char quando não é necessario, fa-lo separadamente
 
-typedef struct nr {
-    float numero;
-    struct nr *proximo;
-}nr;
-
-typedef struct opr{
-    char operador;
-    struct opr *proximo;
-}opr;
+//typedef struct nr {
+//    float numero;
+//    struct nr *proximo;
+//}nr;
+//
+//typedef struct opr{
+//    char operador;
+//    struct opr *proximo;
+//}opr;
 
 void pedir(char *string);
 int validar(char *string);
-void distribuir(char *string);
+void distribuir(char *string, eq **stk);
 void adicionar_nr(int num);
 void adicionar_opr(char opr);
-void adicionar();
+//void adicionar();
 
 int main (){
 
     //char *str_eq;
     char str_eq[150] = {0};
     int x;
+    eq *stk=NULL;
 
     printf("\t***** Calculadora Polaca *****\n");
 
@@ -57,7 +58,7 @@ int main (){
     //separar a equação nas suas partes individuais
     //confirmar se é numero ou operador
     //carregar para a lista
-    distribuir(str_eq);
+    distribuir(str_eq, &stk);
 
 
 
@@ -99,43 +100,93 @@ int validar(char *string){
     return 0;
 }
 
-void distribuir(char *string){
+// vai devolver um ponteiro
+void distribuir(char *string, eq** stk){
     //separar a equação nas suas partes individuais
     //confirmar se é numero ou operador
     //carregar para a lista
+
+    //criar struct com malloc, alocar dados e retornar ponteiro para endresso da struct criada
+    // primeiro ponteiro a ser criado vai apontar para NULL, sendo o fim da stack
+
     char *cpntr, *cpntr2;
     int num;
-    char op;
+    char ch;
+    eq *temp=NULL;
+
+    // inicializar os ponteiros antes de usar
     cpntr=string;
+    cpntr2=cpntr;
+
     while(*cpntr!=0 && *cpntr2!=0){
+
+        // definir espaço na memoria para o no
+        eq *pnt = (eq *)malloc(sizeof(eq));
+
+
       num=strtol(cpntr, &cpntr2,10);
       if(cpntr==cpntr2){
           cpntr2++;
           ch = *cpntr2;
+          pnt->opr = ch;
           //inserir dados em no de struct opr
-          adicionar_opr(ch);
+          //adicionar_opr(ch);
           cpntr2++;
       }
       else{
           // Inserir num em no de struct nr
-          adicionar_nr(num);
+          pnt->nr=num;
+          //adicionar_nr(num);
       }
+      //ainda que dentro do memso ciclo aqui já vai ler dados para um novo no
+      //antes de entrar no proximo if tenho de mover o ponteiro para o proximo struct
+      //depois de mover tenho de alocar memoria novamente
+
+
+      // no anterior aponta para novo no
+      pnt->proximo=temp;
+      temp=pnt;
+
+      eq *pnt2 = (eq *)malloc(sizeof(eq));
+
       num=strtol(cpntr2, &cpntr,10);
       if(cpntr2==cpntr){
           cpntr++;
           ch = *cpntr;
           //inserir dados em no de struct opr
-          adicionar_opr(ch);
+          pnt2->opr = ch;
+          //adicionar_opr(ch);
           cpntr++;
       }
       else{
           // Inserir num em no de struct nr
-          adicionar_nr(num);
+          pnt2->nr=num;
+          //adicionar_nr(num);
       }
+
+      pnt2->proximo=temp;
+      temp=pnt2;
+
     }
+    stk=temp;
 }
 
-//void adicionar_nr(){
+
+//criar struct com malloc, alocar dados e retornar ponteiro para endresso da struct criada
+// primeiro ponteiro a ser criado vai apontar para NULL, sendo o fim da stack
+
+// devolver um ponteiro
+eq * adicionar(eq *pnt){
+
+
+
+    // devolve ponteiro de no atual
+}
+
+
+//criar struct com malloc, alocar dados e retornar ponteiro para
+
+//eq * adicionar_nr(){
 //
 //}
 //
