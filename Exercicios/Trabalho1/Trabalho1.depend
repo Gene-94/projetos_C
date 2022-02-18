@@ -1,0 +1,10 @@
+# depslib dependency file v1.0
+1642683179 source:/home/yevheniy/programing/Trabalho1/main.c
+	<stdio.h>
+	<stdlib.h>
+	<assert.h>
+
+1642671346 source:/home/yevheniy/programing/Trabalho1/tarefa1.c
+	<stdio.h>
+	<stdlib.h>
+

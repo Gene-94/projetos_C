@@ -1,0 +1,3 @@
+913456789;Jorge Santos;Rua 31 Fevereiro, Lisboa;
+961234567;Manuel Sousa;Rua do fundo, Portimão;
+967782340;João Francisco; Albufeira, Lote 1;

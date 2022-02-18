@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1643743200 source:/home/yevheniy/programing/Fibo_prime/main.c
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+

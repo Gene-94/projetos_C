@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1640179472 source:/home/yevheniy/programing/4_salario/main.c
+	<stdio.h>
+	<stdlib.h>
+

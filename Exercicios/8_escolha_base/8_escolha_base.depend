@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1640709797 source:/home/yevheniy/programing/8_escolha_base/main.c
+	<stdio.h>
+	<stdlib.h>
+

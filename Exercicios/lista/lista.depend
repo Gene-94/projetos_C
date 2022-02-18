@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1645131874 source:/home/yevheniy/Programas/Projetos_C/Exercicios/lista/main.c
+	<stdlib.h>
+	<stdio.h>
+

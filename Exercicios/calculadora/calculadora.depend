@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1639735269 source:/home/yevheniy/programing/calculadora/main.c
+	<stdio.h>
+	<stdlib.h>
+

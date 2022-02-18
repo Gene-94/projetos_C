@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1640932574 source:/home/yevheniy/programing/10_quadrado/main.c
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+

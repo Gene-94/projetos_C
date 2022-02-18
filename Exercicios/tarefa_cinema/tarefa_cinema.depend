@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1639769590 source:/home/yevheniy/programing/tarefa_cinema/main.c
+	<stdio.h>
+	<stdlib.h>
+

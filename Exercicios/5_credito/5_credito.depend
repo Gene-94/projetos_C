@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1640213176 source:/home/yevheniy/programing/5_credito/main.c
+	<stdio.h>
+	<stdlib.h>
+

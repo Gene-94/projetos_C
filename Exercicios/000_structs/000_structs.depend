@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1644179818 source:/home/yevheniy/Programas/Projetos_C/000_structs/main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<stdio.h>
+

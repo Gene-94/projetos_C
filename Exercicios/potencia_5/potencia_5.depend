@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1640019714 source:/home/yevheniy/programing/potencia_5/main.c
+	<stdio.h>
+	<stdlib.h>
+

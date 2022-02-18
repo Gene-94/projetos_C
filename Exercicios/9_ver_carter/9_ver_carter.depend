@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1640772030 source:/home/yevheniy/programing/9_ver_carter/main.c
+	<stdio.h>
+	<stdlib.h>
+
