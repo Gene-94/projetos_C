@@ -31,6 +31,7 @@ int validar(char *string);
 void distribuir(char *string, eq **stk);
 void adicionar_nr(int num);
 void adicionar_opr(char opr);
+void imprimir(eq *stk);
 //void adicionar();
 
 int main (){
@@ -60,6 +61,7 @@ int main (){
     //carregar para a lista
     distribuir(str_eq, &stk);
 
+    imprimir(stk);
 
 
 
@@ -118,10 +120,10 @@ void distribuir(char *string, eq** stk){
     cpntr=string;
     cpntr2=cpntr;
 
-    while(*cpntr!=0 && *cpntr2!=0){
+    while(*cpntr!=0){
 
-        // definir espaço na memoria para o no
-        eq *pnt = (eq *)malloc(sizeof(eq));
+      // definir espaço na memoria para o no
+      eq *pnt = (eq *)calloc(1,sizeof(eq));
 
 
       num=strtol(cpntr, &cpntr2,10);
@@ -138,37 +140,85 @@ void distribuir(char *string, eq** stk){
           pnt->nr=num;
           //adicionar_nr(num);
       }
+
+      cpntr = cpntr2;
       //ainda que dentro do memso ciclo aqui já vai ler dados para um novo no
       //antes de entrar no proximo if tenho de mover o ponteiro para o proximo struct
       //depois de mover tenho de alocar memoria novamente
 
 
       // no anterior aponta para novo no
-      pnt->proximo=temp;
+      pnt->proximo=temp;// temp estava a NULL portanto na primeira entrada vai apontar para NULL, sendo o fim da lista
       temp=pnt;
 
-      eq *pnt2 = (eq *)malloc(sizeof(eq));
 
-      num=strtol(cpntr2, &cpntr,10);
-      if(cpntr2==cpntr){
-          cpntr++;
-          ch = *cpntr;
-          //inserir dados em no de struct opr
-          pnt2->opr = ch;
-          //adicionar_opr(ch);
-          cpntr++;
-      }
-      else{
-          // Inserir num em no de struct nr
-          pnt2->nr=num;
-          //adicionar_nr(num);
-      }
-
-      pnt2->proximo=temp;
-      temp=pnt2;
+        // Será que me posso livrar desde segundo if e dispensar o pnt2 ??
+//      eq *pnt2 = (eq *)calloc(1,sizeof(eq));
+//
+//      num=strtol(cpntr2, &cpntr,10);
+//      if(cpntr2==cpntr){
+//          cpntr++;
+//          ch = *cpntr;
+//          //inserir dados em no de struct opr
+//          pnt2->opr = ch;
+//          //adicionar_opr(ch);
+//          cpntr++;
+//      }
+//      else{
+//          // Inserir num em no de struct nr
+//          pnt2->nr=num;
+//          //adicionar_nr(num);
+//      }
+//
+//      pnt2->proximo=temp;
+//      temp=pnt2;
 
     }
-    stk=temp;
+    // a stk da main vai ser a "cabeça"
+    *stk=temp;
+}
+
+void imprimir(eq *stk)
+{
+  for (eq *tmp = stk; tmp != NULL; tmp = tmp->proximo)
+  {
+    printf("%d -", tmp->nr);
+  }
+}
+
+void calcular(eq *stk)
+{
+
+    int num1=0, num2=0;
+  for (eq *tmp = stk; tmp->proximo->proximo != NULL; tmp = tmp->proximo)
+  {
+    if(tmp->proximo->proximo->opr==0){
+
+            continue;
+        }
+
+    else{
+        switch(tmp->proximo->proximo->opr){
+            case '+':
+                tmp->proximo->proximo->nr = tmp->proximo->nr + tmp->nr;
+                break;
+            case '-':
+                tmp->proximo->proximo->nr = tmp->proximo->nr - tmp->nr;
+                break;
+            case 'x':
+            case 'X':
+            case '*':
+                tmp->proximo->proximo->nr = tmp->proximo->nr * tmp->nr;
+                break;
+            case ':':
+            case '/':
+                tmp->proximo->proximo->nr = tmp->proximo->nr / tmp->nr;
+                break;
+
+        }
+        tmp->proximo->proximo->opr=0;
+    }
+  }
 }
 
 
@@ -176,12 +226,12 @@ void distribuir(char *string, eq** stk){
 // primeiro ponteiro a ser criado vai apontar para NULL, sendo o fim da stack
 
 // devolver um ponteiro
-eq * adicionar(eq *pnt){
+//eq * adicionar(eq *pnt){
 
 
 
     // devolve ponteiro de no atual
-}
+//}
 
 
 //criar struct com malloc, alocar dados e retornar ponteiro para
