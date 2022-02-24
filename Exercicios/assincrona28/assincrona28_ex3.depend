@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1645628293 source:/home/yevheniy/Programas/Projetos_C/Exercicios/assincrona28_ex3/main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<locale.h>
+

@@ -11,7 +11,8 @@
                "-g",
                "${file}",
                "-o",
-               "${fileDirname}/bin/${fileBasenameNoExtension}"
+               //"${fileDirname}/bin/${fileBasenameNoExtension}"
+               "${fileDirname}/${fileBasenameNoExtension}"
             ],
             "group": {
                 "isDefault": true
@@ -19,7 +20,8 @@
             }
             "options": {
                 // Reveal the output only if unrecognized errors occur.
-                "cwd": "${workspaceFolder}"
+                //"cwd": "${workspaceFolder}"
+                "cwd": "${fileDirname}"
             },
             // Use the standard MS compiler pattern to detect errors, warnings and infos
             "problemMatcher": "$gcc"

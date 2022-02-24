@@ -1,3 +1,6 @@
+#include <stdio.h>
+#include <stdlib.h>
+
 int main() {
     char string[]=" 1 3 + 3 4 +";
     char *pntr,*pntr2,*pntr3;

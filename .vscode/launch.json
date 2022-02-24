@@ -9,9 +9,10 @@
         ""
       ],
       "stopAtEntry": false,
-      "cwd": "/home/yevheniy/Programas/Projetos_C/00_structs",
+      "cwd": "${fileDirname}",
       "environment": [],
-      "program": "${fileDirname}/bin/${fileBasenameNoExtension}",
+      //"program": "${fileDirname}/bin/${fileBasenameNoExtension}",
+      "program": "${fileDirname}/${fileBasenameNoExtension}",
       "internalConsoleOptions": "openOnSessionStart",
       "MIMode": "gdb",
       "miDebuggerPath": "/usr/bin/gdb",
